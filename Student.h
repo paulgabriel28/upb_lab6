@@ -22,5 +22,5 @@ public:
     
     friend istream& operator>>(istream&,  Student&);
 
-    bool isPrenume(const string) const;
+    bool isPrenume(string) const;
 };

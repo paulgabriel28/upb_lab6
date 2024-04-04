@@ -72,11 +72,20 @@ istream& operator>>(istream &dev, Student &s) {
     return dev;
 }
 
-bool Student::isPrenume(const string p) const {
+bool Student::isPrenume(string p) const {
     string prenume = dp.getPrenume();
     int poz = -1;
-    poz = prenume.find(p);
 
+    for(int i = 0; i < prenume.size(); i++) {
+        prenume[i] = tolower(prenume[i]);
+    }
+
+    for(int i = 0; i < p.size(); i++) {
+        p[i] = tolower(p[i]);
+    }
+
+    poz = prenume.find(p);
+    
     if(poz != -1 && (prenume[poz + p.size()] == '-' || prenume.size() == poz + p.size())) {
         return 1;
     }
