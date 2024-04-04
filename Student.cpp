@@ -76,6 +76,10 @@ bool Student::isPrenume(const string p) const {
     string prenume = dp.getPrenume();
     int poz = -1;
     poz = prenume.find(p);
+
+    if(poz != -1 && (prenume[poz + p.size()] == '-' || prenume.size() == poz + p.size())) {
+        return 1;
+    }
     
-    return poz != -1 ? 1 : 0;
+    return 0;
 }
